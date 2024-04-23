@@ -1,0 +1,26 @@
+{
+  "name": "redux-demo",
+  "version": "1.0.0",
+  "description": "This is the redux demo project as I am learning redux",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eshaawasthi/redux.git"
+  },
+  "keywords": [
+    "redux",
+    "react"
+  ],
+  "author": "Esha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eshaawasthi/redux/issues"
+  },
+  "homepage": "https://github.com/eshaawasthi/redux#readme",
+  "dependencies": {
+    "redux": "^5.0.1"
+  }
+}
