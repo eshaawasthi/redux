@@ -1,12 +1,20 @@
 const { createStore } = require("redux");
 
 const CAKE_ORDERED = "CAKE_ORDERED";
+const CAKE_RESTOCKED = "CAKE_RESTOCKED";
 // ACTION CREATOR - FUNCTION THAT CREATED AN ACTION (OBJECT WITH PROPERTY TYPE)
 
 function orderCake() {
   return {
     type: CAKE_ORDERED,
-    quantity: 1,
+    payload: 1,
+  };
+}
+
+function restockedCake(quantity) {
+  return {
+    type: CAKE_RESTOCKED,
+    payload: quantity,
   };
 }
 
@@ -19,6 +27,8 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case CAKE_ORDERED:
       return { ...state, numOfCakes: state.numOfCakes - 1 };
+    case CAKE_RESTOCKED:
+      return { ...state, numOfCakes: state.numOfCakes + action.payload };
     default:
       return state;
   }
@@ -35,6 +45,7 @@ const unsubscribe = store.subscribe(() => {
 
 store.dispatch(orderCake());
 store.dispatch(orderCake());
+store.dispatch(restockedCake(5));
 
 unsubscribe();
 
