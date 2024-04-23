@@ -1,4 +1,4 @@
-const { createStore } = require("redux");
+const redux = require("redux");
 
 const CAKE_ORDERED = "CAKE_ORDERED";
 const CAKE_RESTOCKED = "CAKE_RESTOCKED";
@@ -36,7 +36,7 @@ const reducer = (state = initialState, action) => {
 
 // CREATE STORE
 
-const store = createStore(reducer);
+const store = redux.createStore(reducer);
 console.log("Initial State", store.getState());
 
 const unsubscribe = store.subscribe(() => {
@@ -46,6 +46,12 @@ const unsubscribe = store.subscribe(() => {
 store.dispatch(orderCake());
 store.dispatch(orderCake());
 store.dispatch(restockedCake(5));
+
+// BIND ACTION CREATOR - ALternative way of dispatching an action
+// const bindActionCreator = redux.bindActionCreators;
+// const actions = bindActionCreator({ orderCake, restockedCake }, store.dispatch);
+// actions.orderCake();
+// actions.restockedCake(5);
 
 unsubscribe();
 
