@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/eshaawasthi/redux#readme",
   "dependencies": {
+    "immer": "^10.0.4",
     "redux": "^5.0.1"
   }
 }
